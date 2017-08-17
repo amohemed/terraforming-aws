@@ -19,3 +19,9 @@ variable "iam_user_name" {}
 variable "dns_suffix" {}
 
 variable "zone_id" {}
+
+variable "elb_security_group_id" {}
+
+variable "subnet_ids" {
+  type = "list"
+}

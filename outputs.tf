@@ -18,10 +18,6 @@ output "ert_resources_bucket" {
   value = "${aws_s3_bucket.resources_bucket.bucket}"
 }
 
-output "ops_manager_public_ip" {
-  value = "${module.ops_manager.public_ip}"
-}
-
 output "ops_manager_dns" {
   value = "${module.ops_manager.dns}"
 }

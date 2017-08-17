@@ -2,10 +2,6 @@ output "bucket" {
   value = "${aws_s3_bucket.ops_manager_bucket.bucket}"
 }
 
-output "public_ip" {
-  value = "${aws_eip.ops_manager.public_ip}"
-}
-
 output "dns" {
   value = "${aws_route53_record.ops_manager.name}"
 }
