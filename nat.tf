@@ -17,9 +17,10 @@ variable "nat_ami_map" {
 resource "aws_instance" "nat" {
   ami                    = "${lookup(var.nat_ami_map, var.region)}"
   instance_type          = "t2.medium"
+  key_name               = "${module.ops_manager.ssh_public_key_name}"
   vpc_security_group_ids = ["${aws_security_group.nat_security_group.id}"]
   source_dest_check      = false
-  subnet_id              = "${aws_subnet.public_subnets.0.id}"
+  subnet_id              = "${aws_subnet.public_subnets.1.id}"
 
   tags {
     Name = "${var.env_name}-nat"
