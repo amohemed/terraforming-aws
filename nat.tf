@@ -18,7 +18,13 @@ resource "aws_instance" "nat" {
   ami                    = "${lookup(var.nat_ami_map, var.region)}"
   instance_type          = "t2.medium"
   key_name               = "${module.ops_manager.ssh_public_key_name}"
-  vpc_security_group_ids = ["${aws_security_group.nat_security_group.id}"]
+  vpc_security_group_ids = [
+    "${aws_security_group.nat_security_group.id}",
+    "${aws_security_group.amazon-us-east1-security-group-1.id}",
+    "${aws_security_group.amazon-us-east1-security-group-2.id}",
+    "${aws_security_group.ec2-us-east1-security-group-1.id}",
+    "${aws_security_group.s3-us-east1-security-group-1.id}"
+  ]
   source_dest_check      = false
   subnet_id              = "${aws_subnet.public_subnets.1.id}"
 
