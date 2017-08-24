@@ -169,3 +169,7 @@ output "dns_zone_id" {
 output "ops_manager_private_ip" {
   value = "${module.ops_manager.ops_manager_private_ip}"
 }
+
+output "public_route_table_id" {
+  value = "${aws_route_table.public_route_table.id}"
+}
